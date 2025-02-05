@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gatitos de la Fuerza</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #1a1a2e;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .button {
+            background-color: #ff4c4c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+        img {
+            width: 200px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🌌 Los Gatitos de la Fuerza 🐱✨</h1>
+    
+    <!-- Contador de amor -->
+    <div class="container">
+        <h2>El amor en la Fuerza ha crecido por:</h2>
+        <h3 id="contador">0 días</h3>
+    </div>
+
+    <!-- Mini juego de decisiones -->
+    <div class="container">
+        <h2>¿A qué lado de la Fuerza te unes?</h2>
+        <button class="button" onclick="eligeLado('luz')">🌞 Lado de la Luz</button>
+        <button class="button" onclick="eligeLado('oscuro')">🌑 Lado Oscuro</button>
+        <p id="mensaje-lado" class="hidden"></p>
+    </div>
+
+    <!-- Mensaje especial desbloqueable -->
+    <div class="container">
+        <h2>Descubre un mensaje especial</h2>
+        <button class="button" onclick="mostrarMensaje()">💌 Ver mensaje</button>
+        <p id="mensaje-secreto" class="hidden">✨ Que la Fuerza (y mi amor) te acompañen, siempre. ✨</p>
+    </div>
+
+    <script>
+        // Contador de amor desde una fecha específica
+        function actualizarContador() {
+            const fechaInicio = new Date('2023-02-14'); // Cambia la fecha si quieres
+            const hoy = new Date();
+            const diferencia = Math.floor((hoy - fechaInicio) / (1000 * 60 * 60 * 24));
+            document.getElementById('contador').textContent = diferencia + " días";
+        }
+        actualizarContador();
+
+        // Mini juego de decisiones
+        function eligeLado(lado) {
+            const mensaje = document.getElementById('mensaje-lado');
+            mensaje.classList.remove('hidden');
+            if (lado === 'luz') {
+                mensaje.textContent = "🐱✨ Has elegido el lado de la luz. Yoda-Gato te guía con amor.";
+            } else {
+                mensaje.textContent = "🐱🌑 Has elegido el lado oscuro. Pero no te preocupes, Darth-Gato te quiere igual.";
+            }
+        }
+
+        // Mensaje desbloqueable
+        function mostrarMensaje() {
+            document.getElementById('mensaje-secreto').classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>
